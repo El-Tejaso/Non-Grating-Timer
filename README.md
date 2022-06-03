@@ -8,4 +8,9 @@ And every sound you could possibly use will either be un-noticeable, or annoying
 It is a win-forms program that will become one of those "Always on top" windows once the countdown ends. It will also be bouncing around the screen like one of those DVD icons on those old TVs (think that one episode of The Office) untill you click on it. This is because simply moving to the top wasn't enough for me to notice it, and I had to add 1 more thing to it. This timer won't startle you, or annoy the people around you in the process (it will annoy you a little though. Especially if you didn't read this readme and know that you can just click on the window to stop it from moving around).
 It also works if you're deaf or if your computer's speakers are broken.
 
+![Gif that shows how the timer works](gifs/basicUse.gif)
+
+
+The UI can look better, but I refuse to spend any more than a few hours on this project.
+
 To use, build the program using C# and Visual Studio 2022. Or just download the binary from the release section.
