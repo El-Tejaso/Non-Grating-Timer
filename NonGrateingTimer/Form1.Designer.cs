@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this._renderTimer = new System.Windows.Forms.Timer(this.components);
             this._timerLabel = new System.Windows.Forms.Label();
             this._startButton = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this._addOneSecond = new System.Windows.Forms.Button();
             this._subtractOneSecond = new System.Windows.Forms.Button();
             this._subtractOneMinute = new System.Windows.Forms.Button();
+            this.shiftIncrementTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // _renderTimer
@@ -91,6 +93,7 @@
             this._subtract1Hour.Size = new System.Drawing.Size(118, 22);
             this._subtract1Hour.TabIndex = 7;
             this._subtract1Hour.Text = "▼";
+            this.shiftIncrementTooltip.SetToolTip(this._subtract1Hour, "to increment by 10");
             this._subtract1Hour.UseVisualStyleBackColor = true;
             this._subtract1Hour.Click += new System.EventHandler(this._subtract1Hour_Click);
             // 
@@ -103,6 +106,7 @@
             this._addOneHour.Size = new System.Drawing.Size(118, 22);
             this._addOneHour.TabIndex = 11;
             this._addOneHour.Text = "▲";
+            this.shiftIncrementTooltip.SetToolTip(this._addOneHour, "to increment by 10");
             this._addOneHour.UseVisualStyleBackColor = true;
             this._addOneHour.Click += new System.EventHandler(this._addOneHour_Click);
             // 
@@ -115,6 +119,7 @@
             this._addOneMinute.Size = new System.Drawing.Size(183, 22);
             this._addOneMinute.TabIndex = 12;
             this._addOneMinute.Text = "▲";
+            this.shiftIncrementTooltip.SetToolTip(this._addOneMinute, "to increment by 10");
             this._addOneMinute.UseVisualStyleBackColor = true;
             this._addOneMinute.Click += new System.EventHandler(this._addOneMinute_Click);
             // 
@@ -127,6 +132,7 @@
             this._addOneSecond.Size = new System.Drawing.Size(164, 22);
             this._addOneSecond.TabIndex = 13;
             this._addOneSecond.Text = "▲";
+            this.shiftIncrementTooltip.SetToolTip(this._addOneSecond, "to increment by 10");
             this._addOneSecond.UseVisualStyleBackColor = true;
             this._addOneSecond.Click += new System.EventHandler(this._addOneSecond_Click);
             // 
@@ -139,6 +145,7 @@
             this._subtractOneSecond.Size = new System.Drawing.Size(164, 22);
             this._subtractOneSecond.TabIndex = 9;
             this._subtractOneSecond.Text = "▼";
+            this.shiftIncrementTooltip.SetToolTip(this._subtractOneSecond, "to increment by 10");
             this._subtractOneSecond.UseVisualStyleBackColor = true;
             this._subtractOneSecond.Click += new System.EventHandler(this._subtractOneSecond_Click);
             // 
@@ -151,8 +158,13 @@
             this._subtractOneMinute.Size = new System.Drawing.Size(183, 22);
             this._subtractOneMinute.TabIndex = 8;
             this._subtractOneMinute.Text = "▼";
+            this.shiftIncrementTooltip.SetToolTip(this._subtractOneMinute, "to increment by 10");
             this._subtractOneMinute.UseVisualStyleBackColor = true;
             this._subtractOneMinute.Click += new System.EventHandler(this._subtractOneMinute_Click);
+            // 
+            // shiftIncrementTooltip
+            // 
+            this.shiftIncrementTooltip.ToolTipTitle = "Hold shift";
             // 
             // Window
             // 
@@ -169,6 +181,7 @@
             this.Controls.Add(this._startButton);
             this.Controls.Add(this._timerLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Window";
             this.Text = "Timer";
@@ -187,6 +200,7 @@
         private System.Windows.Forms.Button _addOneSecond;
         private System.Windows.Forms.Button _subtractOneSecond;
         private System.Windows.Forms.Button _subtractOneMinute;
+        private System.Windows.Forms.ToolTip shiftIncrementTooltip;
     }
 }
 
