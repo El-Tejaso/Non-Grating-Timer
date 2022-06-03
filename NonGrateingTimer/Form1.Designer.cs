@@ -45,6 +45,7 @@
             // 
             // _renderTimer
             // 
+            this._renderTimer.Interval = 33;
             this._renderTimer.Tick += new System.EventHandler(this._renderTimerTick);
             // 
             // _timerLabel
