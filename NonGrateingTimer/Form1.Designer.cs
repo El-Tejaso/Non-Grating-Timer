@@ -60,6 +60,7 @@
             this._timerLabel.TabIndex = 0;
             this._timerLabel.Text = "1h:00m:00s:000ms";
             this._timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._timerLabel.Click += new System.EventHandler(this._timerLabel_Click);
             // 
             // _startButton
             // 
@@ -186,6 +187,7 @@
             this.MaximizeBox = false;
             this.Name = "Window";
             this.Text = "Timer";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Window_MouseDown);
             this.ResumeLayout(false);
 
         }

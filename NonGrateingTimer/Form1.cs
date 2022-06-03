@@ -16,7 +16,7 @@ namespace NonGrateingTimer {
         private ITimeFormatter _formatter;
         private bool _unresolved = false;
 
-        const int WINDOW_SPEED = 30;
+        const int WINDOW_SPEED = 15;
 
         private int _xDir = 1, _yDir = 1;
 
@@ -40,14 +40,20 @@ namespace NonGrateingTimer {
         private void _timerState_OnNoTimeRemaining() {
             _timerLabel.ForeColor = Color.Red;
             _unresolved = true;
-            bringWindowToFront();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void _timerState_OnStateChanged() {
             updateTimerDisplayedTime();
+            resolveTimer();
+        }
+
+        private void resolveTimer() {
+            if (!_unresolved)
+                return;
+
             _timerLabel.ForeColor = Color.Black;
             _unresolved = false;
-            TopMost = false;
         }
 
         private void _timerState_OnStop() {
@@ -56,13 +62,11 @@ namespace NonGrateingTimer {
 
         private void _timerState_OnPause() {
             _startButton.Text = "Resume";
-            TopMost = false;
         }
 
         private void _timerState_OnStart() {
             _startButton.Text = "Pause";
             _renderTimer.Start();
-            TopMost = false;
         }
 
         private void initRenderTimer() {
@@ -76,12 +80,10 @@ namespace NonGrateingTimer {
         }
 
         private void bringWindowToFront() {
-            this.WindowState = FormWindowState.Minimized;
             this.Show();
             this.WindowState = FormWindowState.Normal;
 
             Activate();
-            TopMost = true;
 
             Console.WriteLine("Focused");
         }
@@ -126,6 +128,8 @@ namespace NonGrateingTimer {
             if (!_unresolved)
                 return;
 
+            bringWindowToFront();
+
             var loc = DesktopLocation;
             if (loc.X + Bounds.Width > Screen.FromControl(this).Bounds.Width) {
                 _xDir = -1;
@@ -167,6 +171,14 @@ namespace NonGrateingTimer {
 
         private void _subtractOneSecond_Click(object sender, EventArgs e) {
             addTime(0, 0, -1);
+        }
+
+        private void _timerLabel_Click(object sender, EventArgs e) {
+            resolveTimer();
+        }
+
+        private void Window_MouseDown(object sender, MouseEventArgs e) {
+            resolveTimer();
         }
     }
 }
