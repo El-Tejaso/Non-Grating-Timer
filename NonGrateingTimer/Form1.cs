@@ -53,18 +53,21 @@ namespace NonGrateingTimer
         {
             _startButton.Text = "Start";
             _renderTimer.Stop();
+            TopMost = false;
         }
 
         private void _timerState_OnPause()
         {
             _startButton.Text = "Resume";
             _renderTimer.Stop();
+            TopMost = false;
         }
 
         private void _timerState_OnStart()
         {
             _startButton.Text = "Pause";
             _renderTimer.Start();
+            TopMost = false;
         }
 
         private void initRenderTimer()
@@ -87,6 +90,8 @@ namespace NonGrateingTimer
             }
 
             Activate();
+            TopMost = true;
+
             Console.WriteLine("Focused");
         }
 
@@ -116,36 +121,14 @@ namespace NonGrateingTimer
             _startButton.Text = "Start";
         }
 
-        private void _add1HourButton_Click(object sender, EventArgs e)
-        {
-            addOrSubtractTime(1, 0, 0);
-        }
 
-        private void _add10MinButton_Click(object sender, EventArgs e)
+        private void addTime(int h, int m, int s)
         {
-            addOrSubtractTime(0,10,0);
-        }
+            if ((ModifierKeys & Keys.Shift) == Keys.Shift) {
+                h *= 10; m *= 10; s *= 10;
+            }
 
-        private void _add1MinButton_Click(object sender, EventArgs e)
-        {
-            addOrSubtractTime(0, 1, 0);
-        }
-
-        private void _add10SecButton_Click(object sender, EventArgs e)
-        {
-            addOrSubtractTime(0, 0, 10);
-        }
-
-        private void _add1SecButton_Click(object sender, EventArgs e)
-        {
-            addOrSubtractTime(0, 0, 1);
-        }
-
-        private void addOrSubtractTime(int h, int m, int s)
-        {
             TimeSpan timeDelta = new TimeSpan(h, m, s);
-            if (!_addingTime)
-                timeDelta = -timeDelta;
 
             if (_timerState.Duration + timeDelta > _maxDuration)
             {
@@ -166,10 +149,28 @@ namespace NonGrateingTimer
             updateTimerDisplayedTime();
         }
 
-        private void _plusMinusToggleButton_Click(object sender, EventArgs e)
-        {
-            _addingTime = !_addingTime;
-            _plusMinusToggleButton.Text = _addingTime ? "+" : "-";
+        private void _addOneHour_Click(object sender, EventArgs e) {
+            addTime(1, 0, 0);
+        }
+
+        private void _addOneMinute_Click(object sender, EventArgs e) {
+            addTime(0, 1, 0);
+        }
+
+        private void _addOneSecond_Click(object sender, EventArgs e) {
+            addTime(0, 0, 1);
+        }
+
+        private void _subtract1Hour_Click(object sender, EventArgs e) {
+            addTime(-1, 0, 0);
+        }
+
+        private void _subtractOneMinute_Click(object sender, EventArgs e) {
+            addTime(0, -1, 0);
+        }
+
+        private void _subtractOneSecond_Click(object sender, EventArgs e) {
+            addTime(0, 0, -1);
         }
     }
 }

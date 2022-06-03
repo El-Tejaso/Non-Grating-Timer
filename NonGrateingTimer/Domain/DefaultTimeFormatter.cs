@@ -10,7 +10,8 @@ namespace NonGrateingTimer.Domain {
             string timeString = ""
             + time.Hours.ToString("0h") + ":"
             + time.Minutes.ToString("00m") + ":"
-            + time.Seconds.ToString("00s") + ":";
+            + time.Seconds.ToString("00s") + ":"
+            + time.Milliseconds.ToString("000ms");
 
             return timeString;
         }
