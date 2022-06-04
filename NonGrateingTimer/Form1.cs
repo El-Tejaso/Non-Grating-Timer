@@ -16,7 +16,7 @@ namespace NonGrateingTimer {
         private ITimeFormatter _formatter;
         private bool _unresolved = false;
 
-        const int WINDOW_SPEED = 15;
+        const int WINDOW_SPEED = 10;
 
         private int _xDir = 1, _yDir = 1;
 
@@ -131,13 +131,18 @@ namespace NonGrateingTimer {
             bringWindowToFront();
 
             var loc = DesktopLocation;
-            if (loc.X + Bounds.Width > Screen.FromControl(this).Bounds.Width) {
+            Rectangle totalBounds = new Rectangle();
+            for(int i = 0; i < Screen.AllScreens.Length; i++) {
+                totalBounds = Rectangle.Union(totalBounds, Screen.AllScreens[i].Bounds);
+            }
+
+            if (loc.X + Bounds.Width > totalBounds.Width) {
                 _xDir = -1;
             } else if (loc.X < 0) {
                 _xDir = 1;
             }
 
-            if (loc.Y + Bounds.Height > Screen.FromControl(this).Bounds.Height) {
+            if (loc.Y + Bounds.Height > totalBounds.Height) {
                 _yDir = -1;
             } else if (loc.Y < 0) {
                 _yDir = 1;

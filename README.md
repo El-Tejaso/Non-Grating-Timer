@@ -14,4 +14,4 @@ The UI can look better, but I refuse to spend any more than a few hours on this 
 
 To use, build the program using C# and Visual Studio 2022. Or just download the binary from the release section.
 
-TODO: make this thing travel accross multiple monitors
+~~TODO: make this thing travel accross multiple monitor~~ Done
