@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NonGrateingTimer {
+
     public partial class Window : Form {
         private TimeSpan _maxDuration = new TimeSpan(0, 9, 59, 59, 999);
         private CountdownTimer _timerState;
@@ -132,7 +133,7 @@ namespace NonGrateingTimer {
 
             var loc = DesktopLocation;
             Rectangle totalBounds = new Rectangle();
-            for(int i = 0; i < Screen.AllScreens.Length; i++) {
+            for (int i = 0; i < Screen.AllScreens.Length; i++) {
                 totalBounds = Rectangle.Union(totalBounds, Screen.AllScreens[i].Bounds);
             }
 
@@ -180,6 +181,12 @@ namespace NonGrateingTimer {
 
         private void _timerLabel_Click(object sender, EventArgs e) {
             resolveTimer();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyData == Keys.Space) {
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void Window_MouseDown(object sender, MouseEventArgs e) {

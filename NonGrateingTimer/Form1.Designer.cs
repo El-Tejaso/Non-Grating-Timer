@@ -1,4 +1,6 @@
-﻿namespace NonGrateingTimer
+﻿using NonGrateingTimer.Hacks;
+
+namespace NonGrateingTimer
 {
     partial class Window
     {
@@ -32,14 +34,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this._renderTimer = new System.Windows.Forms.Timer(this.components);
             this._timerLabel = new System.Windows.Forms.Label();
-            this._startButton = new System.Windows.Forms.Button();
-            this._stopButton = new System.Windows.Forms.Button();
-            this._subtract1Hour = new System.Windows.Forms.Button();
-            this._addOneHour = new System.Windows.Forms.Button();
-            this._addOneMinute = new System.Windows.Forms.Button();
-            this._addOneSecond = new System.Windows.Forms.Button();
-            this._subtractOneSecond = new System.Windows.Forms.Button();
-            this._subtractOneMinute = new System.Windows.Forms.Button();
+            this._startButton = new NoSelectButton();
+            this._stopButton = new NoSelectButton();
+            this._subtract1Hour = new NoSelectButton();
+            this._addOneHour = new NoSelectButton();
+            this._addOneMinute = new NoSelectButton();
+            this._addOneSecond = new NoSelectButton();
+            this._subtractOneSecond = new NoSelectButton();
+            this._subtractOneMinute = new NoSelectButton();
             this.shiftIncrementTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this._startButton.Name = "_startButton";
             this._startButton.Size = new System.Drawing.Size(103, 58);
             this._startButton.TabIndex = 5;
+            this._startButton.TabStop = false;
             this._startButton.Text = "Start";
             this._startButton.UseVisualStyleBackColor = true;
             this._startButton.Click += new System.EventHandler(this._startButton_Click);
@@ -82,6 +85,7 @@
             this._stopButton.Name = "_stopButton";
             this._stopButton.Size = new System.Drawing.Size(103, 62);
             this._stopButton.TabIndex = 6;
+            this._stopButton.TabStop = false;
             this._stopButton.Text = "Stop";
             this._stopButton.UseVisualStyleBackColor = true;
             this._stopButton.Click += new System.EventHandler(this._stopButton_Click);
@@ -94,6 +98,7 @@
             this._subtract1Hour.Name = "_subtract1Hour";
             this._subtract1Hour.Size = new System.Drawing.Size(118, 22);
             this._subtract1Hour.TabIndex = 7;
+            this._subtract1Hour.TabStop = false;
             this._subtract1Hour.Text = "▼";
             this.shiftIncrementTooltip.SetToolTip(this._subtract1Hour, "to increment by 10");
             this._subtract1Hour.UseVisualStyleBackColor = true;
@@ -107,6 +112,7 @@
             this._addOneHour.Name = "_addOneHour";
             this._addOneHour.Size = new System.Drawing.Size(118, 22);
             this._addOneHour.TabIndex = 11;
+            this._addOneHour.TabStop = false;
             this._addOneHour.Text = "▲";
             this.shiftIncrementTooltip.SetToolTip(this._addOneHour, "to increment by 10");
             this._addOneHour.UseVisualStyleBackColor = true;
@@ -120,6 +126,7 @@
             this._addOneMinute.Name = "_addOneMinute";
             this._addOneMinute.Size = new System.Drawing.Size(183, 22);
             this._addOneMinute.TabIndex = 12;
+            this._addOneMinute.TabStop = false;
             this._addOneMinute.Text = "▲";
             this.shiftIncrementTooltip.SetToolTip(this._addOneMinute, "to increment by 10");
             this._addOneMinute.UseVisualStyleBackColor = true;
@@ -133,6 +140,7 @@
             this._addOneSecond.Name = "_addOneSecond";
             this._addOneSecond.Size = new System.Drawing.Size(164, 22);
             this._addOneSecond.TabIndex = 13;
+            this._addOneSecond.TabStop = false;
             this._addOneSecond.Text = "▲";
             this.shiftIncrementTooltip.SetToolTip(this._addOneSecond, "to increment by 10");
             this._addOneSecond.UseVisualStyleBackColor = true;
@@ -146,6 +154,7 @@
             this._subtractOneSecond.Name = "_subtractOneSecond";
             this._subtractOneSecond.Size = new System.Drawing.Size(164, 22);
             this._subtractOneSecond.TabIndex = 9;
+            this._subtractOneSecond.TabStop = false;
             this._subtractOneSecond.Text = "▼";
             this.shiftIncrementTooltip.SetToolTip(this._subtractOneSecond, "to increment by 10");
             this._subtractOneSecond.UseVisualStyleBackColor = true;
@@ -159,6 +168,7 @@
             this._subtractOneMinute.Name = "_subtractOneMinute";
             this._subtractOneMinute.Size = new System.Drawing.Size(183, 22);
             this._subtractOneMinute.TabIndex = 8;
+            this._subtractOneMinute.TabStop = false;
             this._subtractOneMinute.Text = "▼";
             this.shiftIncrementTooltip.SetToolTip(this._subtractOneMinute, "to increment by 10");
             this._subtractOneMinute.UseVisualStyleBackColor = true;
@@ -187,6 +197,7 @@
             this.MaximizeBox = false;
             this.Name = "Window";
             this.Text = "Timer";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Window_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Window_MouseDown);
             this.ResumeLayout(false);
 
@@ -195,14 +206,14 @@
         #endregion
         private System.Windows.Forms.Timer _renderTimer;
         private System.Windows.Forms.Label _timerLabel;
-        private System.Windows.Forms.Button _startButton;
-        private System.Windows.Forms.Button _stopButton;
-        private System.Windows.Forms.Button _subtract1Hour;
-        private System.Windows.Forms.Button _addOneHour;
-        private System.Windows.Forms.Button _addOneMinute;
-        private System.Windows.Forms.Button _addOneSecond;
-        private System.Windows.Forms.Button _subtractOneSecond;
-        private System.Windows.Forms.Button _subtractOneMinute;
+        private NoSelectButton _startButton;
+        private NoSelectButton _stopButton;
+        private NoSelectButton _subtract1Hour;
+        private NoSelectButton _addOneHour;
+        private NoSelectButton _addOneMinute;
+        private NoSelectButton _addOneSecond;
+        private NoSelectButton _subtractOneSecond;
+        private NoSelectButton _subtractOneMinute;
         private System.Windows.Forms.ToolTip shiftIncrementTooltip;
     }
 }
