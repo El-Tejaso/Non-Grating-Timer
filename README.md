@@ -1,5 +1,3 @@
-So apparently windows comes with an alarm clock app that has a countdown timer, which is actually quite good. So this project was a complete waste of time. Oh well
-
 # Problem statement
 I have an hourglass timer on my phone. But the ringing hurts my ears, gives me tinnitus, and makes everyone within 1km's ears bleed. Ok maybe not the last part. But it isn't very pleasant. Not to mention that it is startling, but this would also apply to any other timer that uses a loud sound as the mechanism for telling you that the time is up.
 
