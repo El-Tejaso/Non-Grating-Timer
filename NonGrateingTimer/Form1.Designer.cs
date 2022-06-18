@@ -34,14 +34,14 @@ namespace NonGrateingTimer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this._renderTimer = new System.Windows.Forms.Timer(this.components);
             this._timerLabel = new System.Windows.Forms.Label();
-            this._startButton = new NoSelectButton();
-            this._stopButton = new NoSelectButton();
-            this._subtract1Hour = new NoSelectButton();
-            this._addOneHour = new NoSelectButton();
-            this._addOneMinute = new NoSelectButton();
-            this._addOneSecond = new NoSelectButton();
-            this._subtractOneSecond = new NoSelectButton();
-            this._subtractOneMinute = new NoSelectButton();
+            this._startButton = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._stopButton = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._subtract1Hour = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._addOneHour = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._addOneMinute = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._addOneSecond = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._subtractOneSecond = new NonGrateingTimer.Hacks.NoSelectButton();
+            this._subtractOneMinute = new NonGrateingTimer.Hacks.NoSelectButton();
             this.shiftIncrementTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -58,9 +58,9 @@ namespace NonGrateingTimer
             this._timerLabel.Location = new System.Drawing.Point(-1, 12);
             this._timerLabel.Margin = new System.Windows.Forms.Padding(10);
             this._timerLabel.Name = "_timerLabel";
-            this._timerLabel.Size = new System.Drawing.Size(857, 126);
+            this._timerLabel.Size = new System.Drawing.Size(916, 126);
             this._timerLabel.TabIndex = 0;
-            this._timerLabel.Text = "1h:00m:00s:000ms";
+            this._timerLabel.Text = "1h:00m:-00s:-000ms";
             this._timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this._timerLabel.Click += new System.EventHandler(this._timerLabel_Click);
             // 
@@ -68,7 +68,7 @@ namespace NonGrateingTimer
             // 
             this._startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._startButton.Font = new System.Drawing.Font("Consolas", 12F);
-            this._startButton.Location = new System.Drawing.Point(869, 12);
+            this._startButton.Location = new System.Drawing.Point(914, 12);
             this._startButton.Name = "_startButton";
             this._startButton.Size = new System.Drawing.Size(103, 58);
             this._startButton.TabIndex = 5;
@@ -81,7 +81,7 @@ namespace NonGrateingTimer
             // 
             this._stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._stopButton.Font = new System.Drawing.Font("Consolas", 12F);
-            this._stopButton.Location = new System.Drawing.Point(869, 76);
+            this._stopButton.Location = new System.Drawing.Point(914, 76);
             this._stopButton.Name = "_stopButton";
             this._stopButton.Size = new System.Drawing.Size(103, 62);
             this._stopButton.TabIndex = 6;
@@ -94,7 +94,7 @@ namespace NonGrateingTimer
             // 
             this._subtract1Hour.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._subtract1Hour.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._subtract1Hour.Location = new System.Drawing.Point(24, 116);
+            this._subtract1Hour.Location = new System.Drawing.Point(12, 116);
             this._subtract1Hour.Name = "_subtract1Hour";
             this._subtract1Hour.Size = new System.Drawing.Size(118, 22);
             this._subtract1Hour.TabIndex = 7;
@@ -108,7 +108,7 @@ namespace NonGrateingTimer
             // 
             this._addOneHour.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this._addOneHour.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addOneHour.Location = new System.Drawing.Point(24, 12);
+            this._addOneHour.Location = new System.Drawing.Point(16, 12);
             this._addOneHour.Name = "_addOneHour";
             this._addOneHour.Size = new System.Drawing.Size(118, 22);
             this._addOneHour.TabIndex = 11;
@@ -122,7 +122,7 @@ namespace NonGrateingTimer
             // 
             this._addOneMinute.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this._addOneMinute.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addOneMinute.Location = new System.Drawing.Point(169, 12);
+            this._addOneMinute.Location = new System.Drawing.Point(170, 12);
             this._addOneMinute.Name = "_addOneMinute";
             this._addOneMinute.Size = new System.Drawing.Size(183, 22);
             this._addOneMinute.TabIndex = 12;
@@ -136,7 +136,7 @@ namespace NonGrateingTimer
             // 
             this._addOneSecond.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this._addOneSecond.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addOneSecond.Location = new System.Drawing.Point(391, 12);
+            this._addOneSecond.Location = new System.Drawing.Point(392, 12);
             this._addOneSecond.Name = "_addOneSecond";
             this._addOneSecond.Size = new System.Drawing.Size(164, 22);
             this._addOneSecond.TabIndex = 13;
@@ -150,7 +150,7 @@ namespace NonGrateingTimer
             // 
             this._subtractOneSecond.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._subtractOneSecond.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._subtractOneSecond.Location = new System.Drawing.Point(391, 116);
+            this._subtractOneSecond.Location = new System.Drawing.Point(392, 116);
             this._subtractOneSecond.Name = "_subtractOneSecond";
             this._subtractOneSecond.Size = new System.Drawing.Size(164, 22);
             this._subtractOneSecond.TabIndex = 9;
@@ -164,7 +164,7 @@ namespace NonGrateingTimer
             // 
             this._subtractOneMinute.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._subtractOneMinute.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._subtractOneMinute.Location = new System.Drawing.Point(169, 116);
+            this._subtractOneMinute.Location = new System.Drawing.Point(170, 116);
             this._subtractOneMinute.Name = "_subtractOneMinute";
             this._subtractOneMinute.Size = new System.Drawing.Size(183, 22);
             this._subtractOneMinute.TabIndex = 8;
@@ -182,7 +182,7 @@ namespace NonGrateingTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 150);
+            this.ClientSize = new System.Drawing.Size(1029, 150);
             this.Controls.Add(this._addOneSecond);
             this.Controls.Add(this._addOneMinute);
             this.Controls.Add(this._addOneHour);

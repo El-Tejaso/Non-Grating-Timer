@@ -20,11 +20,13 @@ namespace NonGrateingTimer
         private DateTime startedTime;
 
         private bool started = false;
+        private bool ended = false;
         private bool paused = false;
 
-        public bool IsCountingDown { get { return !paused && started; } }
-        public bool IsStarted { get { return started; } }
-        public bool IsPaused { get { return paused; } }
+        public bool IsCountingDown => !paused && started; 
+        public bool IsStarted =>  started;
+        public bool IsPaused => paused;
+        public bool IsEnded => ended;
 
         public TimeSpan Duration {
             get {
@@ -44,9 +46,12 @@ namespace NonGrateingTimer
                     TimeSpan remainingTime = startedTime + duration - dateTimeProvider.Now();
                     if (remainingTime < TimeSpan.Zero)
                     {
-                        Stop();
-                        OnNoTimeRemaining?.Invoke();
-                        return TimeSpan.Zero;
+                        if(!ended) {
+                            ended = true;
+                            OnNoTimeRemaining?.Invoke();
+                        }
+                    } else {
+                        ended = false;
                     }
 
                     return remainingTime;
@@ -89,6 +94,7 @@ namespace NonGrateingTimer
         private void start()
         {
             started = true;
+            ended = false;
             startedTime = dateTimeProvider.Now();
         }
 
